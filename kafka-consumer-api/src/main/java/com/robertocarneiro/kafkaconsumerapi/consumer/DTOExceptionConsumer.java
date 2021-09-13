@@ -29,7 +29,7 @@ public class DTOExceptionConsumer {
             topics = "${kafka.topic.dto}",
             clientIdPrefix = "${kafka.topic.dto}-${kafka.group-id.exception}",
             groupId = "${kafka.group-id.exception}",
-            containerFactory = "stringEarliestKafkaListenerContainerFactory"
+            containerFactory = "dtoEarliestKafkaListenerContainerFactory"
     )
     public void receiveEarliestException(
             @Payload String payload,

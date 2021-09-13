@@ -27,7 +27,7 @@ public class DTOLatestConsumer {
             topics = "${kafka.topic.dto}",
             clientIdPrefix = "${kafka.topic.dto}-${kafka.group-id.latest}",
             groupId = "${kafka.group-id.latest}",
-            containerFactory = "stringLatestKafkaListenerContainerFactory"
+            containerFactory = "dtoLatestKafkaListenerContainerFactory"
     )
     public void receiveLatest(
             @Payload String payload,

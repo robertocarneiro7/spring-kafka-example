@@ -27,7 +27,7 @@ public class DTOEarliestConsumer {
             topics = "${kafka.topic.dto}",
             clientIdPrefix = "${kafka.topic.dto}-${kafka.group-id.earliest}",
             groupId = "${kafka.group-id.earliest}",
-            containerFactory = "stringEarliestKafkaListenerContainerFactory"
+            containerFactory = "dtoEarliestKafkaListenerContainerFactory"
     )
     public void receiveEarliest(
             @Payload String payload,
