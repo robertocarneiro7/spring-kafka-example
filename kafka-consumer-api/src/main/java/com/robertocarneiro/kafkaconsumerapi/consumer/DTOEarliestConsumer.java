@@ -25,7 +25,7 @@ public class DTOEarliestConsumer {
     @SneakyThrows
     @KafkaListener(
             topics = "${kafka.topic.dto}",
-            clientIdPrefix = "${kafka.client-id}",
+            clientIdPrefix = "${kafka.topic.dto}-${kafka.group-id.earliest}",
             groupId = "${kafka.group-id.earliest}",
             containerFactory = "stringEarliestKafkaListenerContainerFactory"
     )

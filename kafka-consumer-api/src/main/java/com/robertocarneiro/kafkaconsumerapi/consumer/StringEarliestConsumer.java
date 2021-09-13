@@ -17,7 +17,7 @@ public class StringEarliestConsumer {
 
     @KafkaListener(
             topics = "${kafka.topic.string}",
-            clientIdPrefix = "${kafka.client-id}",
+            clientIdPrefix = "${kafka.topic.string}-${kafka.group-id.earliest}",
             groupId = "${kafka.group-id.earliest}",
             containerFactory = "stringEarliestKafkaListenerContainerFactory"
     )

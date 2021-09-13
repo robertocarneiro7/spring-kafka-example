@@ -17,7 +17,7 @@ public class StringLatestConsumer {
 
     @KafkaListener(
             topics = "${kafka.topic.string}",
-            clientIdPrefix = "${kafka.client-id}",
+            clientIdPrefix = "${kafka.topic.string}-${kafka.group-id.latest}",
             groupId = "${kafka.group-id.latest}",
             containerFactory = "stringLatestKafkaListenerContainerFactory"
     )

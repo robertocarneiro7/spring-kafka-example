@@ -17,7 +17,7 @@ public class LongEarliestConsumer {
 
     @KafkaListener(
             topics = "${kafka.topic.long}",
-            clientIdPrefix = "${kafka.client-id}",
+            clientIdPrefix = "${kafka.topic.long}-${kafka.group-id.earliest}",
             groupId = "${kafka.group-id.earliest}",
             containerFactory = "longEarliestKafkaListenerContainerFactory"
     )

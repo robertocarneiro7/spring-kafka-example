@@ -13,6 +13,8 @@ import java.time.LocalDateTime;
 import java.util.Random;
 import java.util.UUID;
 
+import static com.robertocarneiro.kafkaproducerapi.util.Util.generateKey;
+
 @Service
 @RequiredArgsConstructor
 public class ProducerServiceImpl implements ProducerService {
@@ -40,21 +42,21 @@ public class ProducerServiceImpl implements ProducerService {
                 .createdAt(LocalDateTime.now())
                 .build();
         String payload = objectMapper.writeValueAsString(testDTO);
-        stringKafkaTemplate.send(topicDTO, payload);
+        stringKafkaTemplate.send(topicDTO, generateKey(topicDTO), payload);
         return testDTO;
     }
 
     @Override
     public Long producerLong() {
         Long longRandom = new Random().nextLong();
-        longKafkaTemplate.send(topicLong, longRandom);
+        longKafkaTemplate.send(topicLong, generateKey(topicLong), longRandom);
         return longRandom;
     }
 
     @Override
     public String producerString() {
         String stringRandom = UUID.randomUUID().toString();
-        stringKafkaTemplate.send(topicString, stringRandom);
+        stringKafkaTemplate.send(topicString, generateKey(topicString), stringRandom);
         return stringRandom;
     }
 }

@@ -19,7 +19,7 @@ public class LongExceptionConsumer {
 
     @KafkaListener(
             topics = "${kafka.topic.long}",
-            clientIdPrefix = "${kafka.client-id}",
+            clientIdPrefix = "${kafka.topic.long}-${kafka.group-id.exception}",
             groupId = "${kafka.group-id.exception}",
             containerFactory = "longEarliestKafkaListenerContainerFactory"
     )

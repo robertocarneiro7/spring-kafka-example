@@ -19,7 +19,7 @@ public class StringExceptionConsumer {
 
     @KafkaListener(
             topics = "${kafka.topic.string}",
-            clientIdPrefix = "${kafka.client-id}",
+            clientIdPrefix = "${kafka.topic.string}-${kafka.group-id.exception}",
             groupId = "${kafka.group-id.exception}",
             containerFactory = "stringEarliestKafkaListenerContainerFactory"
     )

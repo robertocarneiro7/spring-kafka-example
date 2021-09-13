@@ -27,7 +27,7 @@ public class DTOExceptionConsumer {
     @SneakyThrows
     @KafkaListener(
             topics = "${kafka.topic.dto}",
-            clientIdPrefix = "${kafka.client-id}",
+            clientIdPrefix = "${kafka.topic.dto}-${kafka.group-id.exception}",
             groupId = "${kafka.group-id.exception}",
             containerFactory = "stringEarliestKafkaListenerContainerFactory"
     )
